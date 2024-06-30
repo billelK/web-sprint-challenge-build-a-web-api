@@ -19,7 +19,7 @@ async function validateProjectId (req,res,next) {
 async function validateProject (req,res,next) {
     try{
         const payload = req.body
-        if(!payload.name || !payload.description ) {
+        if(!payload.name || !payload.description || !(payload.completed !== undefined) ) {
             res.status(400).json({
                 status: "400 Bad Request",
                 message: "The fields Name, Description and Completed are required !"
